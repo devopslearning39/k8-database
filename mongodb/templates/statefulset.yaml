@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: "jellapraveenkumar817/mongodb:{{ .Values.statefulset.replicas }}"
+        image: "jellapraveenkumar817/mongodb:{{ .Values.statefulset.imageVersion }}"
         volumeMounts:
         - name: mongodb
           mountPath: /data/db
