@@ -1,0 +1,18 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::692859912310:role/eksctl-cluster-1-nodegroup-spot-NodeInstanceRole-fjKgvkeOMc2u
+      username: system:node:{{EC2PrivateDNSName}}
+mapUsers: |
+    - groups:
+      - system:masters
+      userarn: arn:aws:iam::692859912310:user/ramesh
+      username: ramesh
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+  uid: 3d91e486-dd35-45a6-9972-d850c7342a48
