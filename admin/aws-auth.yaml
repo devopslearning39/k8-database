@@ -1,9 +1,4 @@
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: aws-auth
-  namespace: kube-system
-  uid: 3d91e486-dd35-45a6-9972-d850c7342a48
 data:
   mapRoles: |
     - groups:
@@ -13,6 +8,13 @@ data:
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
     - groups:
-      - system:RoboshopClusterDescribe
+      - roboshop-pod-reader
       userarn: arn:aws:iam::692859912310:user/ramesh
       username: ramesh
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-06-01T03:11:07Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "1415"
+  uid: 3d91e486-dd35-45a6-9972-d850c7342a48
